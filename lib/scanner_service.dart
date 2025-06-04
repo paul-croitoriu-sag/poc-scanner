@@ -74,6 +74,10 @@ class ScannerService {
       return;
     }
 
+    List<CodeFormat> codeFormats = CodeFormatUtils.ALL_1D_FORMATS;
+    Map<String, dynamic> properties = {...CodeFormatUtils.getAsPropertiesComplement(codeFormats), 'DEC_CODABAR_START_STOP_TRANSMIT': true};
+    _honeywell?.setProperties(properties);
+
     await _honeywell!.startScanner();
   }
 
